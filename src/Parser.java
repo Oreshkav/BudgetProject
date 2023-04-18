@@ -40,6 +40,9 @@ public class Parser {
     }
 
     br.close();
+    System.out.println(listBudget);
     return listBudget;
+
+
   }
 }

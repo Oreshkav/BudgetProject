@@ -1,11 +1,12 @@
+import java.io.IOException;
+
 public class Main {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
 
     // Класс РасходДоход
     //    Наименование
     //    Категория (Еда, Развлечения, Одежда, Обучение)
     //    Сумма
-
 
     //Основное меню
 //    1. Добавить запись
@@ -17,10 +18,6 @@ public class Main {
 //        по категориям
 //    5. Сальдо (остаток денег)
 
-
-
-
-
-
+    Menu.menuStart();
   }
 }

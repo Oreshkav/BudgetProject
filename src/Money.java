@@ -78,4 +78,9 @@ public class Money {
     return new Money(date, name, category, sum);
   }
 
+  @Override
+  public String toString() {
+    return "Money{" +        "date=" + date +        ", name='" + name + '\'' +
+        ", category='" + category + '\'' +        ", sum=" + sum +        '}';
+  }
 }
