@@ -44,8 +44,7 @@ public class Menu {
 
     List<String> menuMain = new ArrayList<>();
     menuMain.add("Добавить запись.");
-    menuMain.add("Редактировать запись.");
-    menuMain.add("Вывести список затрат.");
+    menuMain.add("Редактировать запись.");    menuMain.add("Вывести список затрат.");
     menuMain.add("Удалить запись.");
     menuMain.add("Выйти.");
 

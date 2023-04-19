@@ -70,7 +70,7 @@ public class ChangesBudget {
   // печать всех строк бюджета с сортировкой по дате, по категории
   public static void printBudget() throws IOException {
 
-    List<Budget> expenses = Parser.parser();
+    List<Budget> expenses = parser();
     expenses.sort(new BudgetComparator.BudgetDateCategoryComparator());
     for (Budget row : expenses) {
       System.out.println(row);
@@ -83,7 +83,7 @@ public class ChangesBudget {
 
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-      List<Budget> budget = new ArrayList<>(Parser.parser());
+      List<Budget> budget = new ArrayList<>(parser());
 
       for (int i = 0; i < budget.size(); ++i) {
         System.out.println(((i + 1) + ". " + budget.get(i)));
