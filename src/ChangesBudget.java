@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,15 +33,42 @@ public class ChangesBudget {
     Menu.menuStart();
   }
 
-  // печать всех строк бюджета с сортировкой по дате, по наименованию
-  public static void printBudget() throws IOException {
+  //чтение записей из файла бюджет
+  public static List<Budget> parser() throws IOException {
 
-//    Parser.parser().sort(new BudgetComparator.BudgetDateCategoryComparator());
-//    for (Budget row : Parser.parser()) {
-//      System.out.println(row);
-//    }
-//    Menu.menuStart();
-//  }
+    File budgetFile = new File("res/budget.txt");
+    if (!budgetFile.exists()) {
+      System.out.println("Файл не найден.");
+      Menu.menuStart();
+    }
+
+    BufferedReader br = new BufferedReader(new FileReader("res/budget.txt"));
+    List<Budget> listBudget = new ArrayList<>();
+
+    for (String line = br.readLine(); line != null; line = br.readLine()) {
+      int lastSep = line.indexOf(SEP);
+
+      LocalDate date = LocalDate.parse(line.substring(0, lastSep));
+      line = line.substring(lastSep + 2);
+      lastSep = line.indexOf(SEP);
+
+      String name = line.substring(0, lastSep);
+      line = line.substring(lastSep + 2);
+      lastSep = line.indexOf(SEP);
+
+      String category = line.substring(0, lastSep);
+
+      int sum = Integer.parseInt(line.substring(lastSep + 2));
+
+      Budget readedMovingLine = new Budget(date, name, category, sum);
+      listBudget.add(readedMovingLine);
+    }
+    br.close();
+    return listBudget;
+  }
+
+  // печать всех строк бюджета с сортировкой по дате, по категории
+  public static void printBudget() throws IOException {
 
     List<Budget> expenses = Parser.parser();
     expenses.sort(new BudgetComparator.BudgetDateCategoryComparator());
@@ -87,7 +115,7 @@ public class ChangesBudget {
       }
       fileWriter.close();
 
-      //выбор следующего действия
+      //выбор следующего действия или возврат в меню
       System.out.println("Нажмите 1 для продолжения удаления и 2 для выхода в меню");
 
       int vybor = Integer.parseInt(br.readLine());
@@ -96,7 +124,6 @@ public class ChangesBudget {
       }
       Menu.menuStart();
     }
-
   }
 
 

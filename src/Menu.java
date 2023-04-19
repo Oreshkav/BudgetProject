@@ -21,17 +21,17 @@ public class Menu {
     int numMenu = readMenu(menuMain);
 
     switch (numMenu) {
-      case 1:
-        ChangesBudget.addMovingMoneyToFile();  // добавление записи в бюджет
+      case 1:                                  //добавление записи в бюджет
+        ChangesBudget.addMovingMoneyToFile();
         break;
-      case 2: // ToDoList.taskChange();
+      case 2:                                  //редактирование записей
         System.out.println("Редактировать запись.");
         break;
-      case 3:
-        ChangesBudget.printBudget();          //Вывести список бюджета
+      case 3:                                  //вывод списка бюджета
+        ChangesBudget.printBudget();
         break;
-      case 4:
-        ChangesBudget.delRowFromBudget();     //Удалить строку из бюджета
+      case 4:                                  //удаление строк из бюджета
+        ChangesBudget.delRowFromBudget();
         break;
       case 5:
         System.out.println("Приходи еще, приноси денежек!");

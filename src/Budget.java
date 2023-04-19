@@ -80,6 +80,6 @@ public class Budget {
 
   @Override
   public String toString() {
-    return date + ", Категория: " + category + ", " + name + ", Сумма = " + sum;
+    return date + " Категория: " + category + ", " + name + ", Сумма = " + sum;
   }
 }
