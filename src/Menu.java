@@ -22,29 +22,20 @@ public class Menu {
 
     switch (numMenu) {
       case 1:
-//      if (numMenu == 1) {
-        System.out.println("Добавить запись.");
-        WriteToFile.addMovingMoneyToFile();
-//      }
-      case 2:
-//      if (numMenu == 2) {
+        ChangesBudget.addMovingMoneyToFile();  // добавление записи в бюджет
+        break;
+      case 2: // ToDoList.taskChange();
         System.out.println("Редактировать запись.");
-//      ToDoList.taskChange();
-//      }
-
-      // вывод подменю критериев отбора
-      if (numMenu == 3) {
-        System.out.println("Вывести список затрат.");
-//      ToDoList.ShowAll();
-      }
-      if (numMenu == 4) {
-        System.out.println("Удалить запись.");
-//      ToDoList.delTaskInToDoFile();
-      }
-
-      if (numMenu == 5) {
-        System.out.println("Выходим. До свидания! Приятно было с Вами иметь дело!");
-      }
+        break;
+      case 3:
+        ChangesBudget.printBudget();          //Вывести список бюджета
+        break;
+      case 4:
+        ChangesBudget.delRowFromBudget();     //Удалить строку из бюджета
+        break;
+      case 5:
+        System.out.println("Приходи еще, приноси денежек!");
+        break;
     }
   }
 

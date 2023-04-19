@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 
-public class Money {
+public class Budget {
 
   private LocalDate date;
 
@@ -13,7 +13,7 @@ public class Money {
 
   private int sum;
 
-  public Money(LocalDate date, String name, String category, int sum){
+  public Budget(LocalDate date, String name, String category, int sum){
     this.date = date;
     this.name = name;
     this.category = category;
@@ -52,7 +52,7 @@ public class Money {
     this.sum = sum;
   }
 
-  public static Money addMoneyMoving() throws IOException {
+  public static Budget addMoneyMoving() throws IOException {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -73,14 +73,13 @@ public class Money {
       System.err.println("Неправильный формат числа: " + e.getMessage());
     }
 
-    Money rowAddMoneyMoving = new Money(date, name, category, sum);
+    Budget rowAddMoneyMoving = new Budget(date, name, category, sum);
     System.out.printf("Добавлена запись: " + rowAddMoneyMoving);
-    return new Money(date, name, category, sum);
+    return new Budget(date, name, category, sum);
   }
 
   @Override
   public String toString() {
-    return "Money{" +        "date=" + date +        ", name='" + name + '\'' +
-        ", category='" + category + '\'' +        ", sum=" + sum +        '}';
+    return date + ", Категория: " + category + ", " + name + ", Сумма = " + sum;
   }
 }

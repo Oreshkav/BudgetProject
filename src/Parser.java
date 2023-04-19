@@ -6,17 +6,16 @@ public class Parser {
 
   final public static String SEP = "; ";
 
-  public static List<Money> parser() throws IOException {
+  public static List<Budget> parser() throws IOException {
 
     File budgetFile = new File("res/budget.txt");
     if (!budgetFile.exists()) {
       System.out.println("Файл не найден.");
-      //здесь будет переход в основное меню
-//      Menu.menuStart();
+      Menu.menuStart();
     }
 
     BufferedReader br = new BufferedReader(new FileReader("res/budget.txt"));
-    List<Money> listBudget = new ArrayList<>();
+    List<Budget> listBudget = new ArrayList<>();
 
     for (String line = br.readLine(); line != null; line = br.readLine()) {
       int lastSep = line.indexOf(SEP);
@@ -33,16 +32,16 @@ public class Parser {
       line = line.substring(lastSep + 2);
       lastSep = line.indexOf(SEP);
 
-      int sum = Integer.parseInt(line.substring(0, lastSep));
+      if (line.substring(lastSep + 2) == "-") {
+        int sum = -1 * Integer.parseInt(line.substring(lastSep + 3));
+      }
 
-      Money readedMovingLine = new Money(date, name, category, sum);
+      int sum = Integer.parseInt(line.substring(lastSep + 2));
+
+      Budget readedMovingLine = new Budget(date, name, category, sum);
       listBudget.add(readedMovingLine);
     }
-
     br.close();
-    System.out.println(listBudget);
     return listBudget;
-
-
   }
 }
