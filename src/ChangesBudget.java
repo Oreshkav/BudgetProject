@@ -84,6 +84,7 @@ public class ChangesBudget {
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
       List<Budget> budget = new ArrayList<>(parser());
+      budget.sort(new BudgetComparator.BudgetDateCategoryNameComparator());
 
       for (int i = 0; i < budget.size(); ++i) {
         System.out.println(((i + 1) + ". " + budget.get(i)));
