@@ -23,14 +23,13 @@ public class ChangesBudget {
     fileWriter.write(String.valueOf(line));
     fileWriter.close();
 
-    System.out.println("Нажмите 1 для добавление ещё одной записи и 2 для выхода в меню");
+    System.out.println("\nНажмите 1 для добавление ещё одной записи и 2 для выхода в меню");
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int vybor = Integer.parseInt(br.readLine());
     if (vybor == 1) {
       addMovingMoneyToFile();
     }
-    System.out.println("Здесь будет переход в главное меню.");
-    Menu.menuStart();
+    Main.menuStart();
   }
 
   //чтение записей из файла бюджет
@@ -39,7 +38,7 @@ public class ChangesBudget {
     File budgetFile = new File("res/budget.txt");
     if (!budgetFile.exists()) {
       System.out.println("Файл не найден.");
-      Menu.menuStart();
+      Main.menuStart();
     }
 
     BufferedReader br = new BufferedReader(new FileReader("res/budget.txt"));
@@ -75,7 +74,7 @@ public class ChangesBudget {
     for (Budget row : expenses) {
       System.out.println(row);
     }
-    Menu.menuStart();
+    Main.menuStart();
   }
 
     //удаление записей из бюджета
@@ -117,13 +116,13 @@ public class ChangesBudget {
       fileWriter.close();
 
       //выбор следующего действия или возврат в меню
-      System.out.println("Нажмите 1 для продолжения удаления и 2 для выхода в меню");
+      System.out.println("\nНажмите 1 для продолжения удаления и 2 для выхода в меню");
 
       int vybor = Integer.parseInt(br.readLine());
       if (vybor == 1) {
         delRowFromBudget();
       }
-      Menu.menuStart();
+      Main.menuStart();
     }
   }
 

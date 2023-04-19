@@ -57,6 +57,8 @@ public class Budget {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     LocalDate date = LocalDate.now();
+//    System.out.print("Введите дату: ");
+//    LocalDate date = local  br.readLine();
 
     System.out.print("Введите расход/приход денег: ");
     String name = br.readLine();
