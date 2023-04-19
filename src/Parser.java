@@ -29,14 +29,16 @@ public class Parser {
       lastSep = line.indexOf(SEP);
 
       String category = line.substring(0, lastSep);
-      line = line.substring(lastSep + 2);
-      lastSep = line.indexOf(SEP);
+//      line = line.substring(lastSep + 2);
+//      lastSep = line.indexOf(SEP);
+//
+//      if (line.substring(lastSep + 2) == "-") {
+//        int sum = -1 * Integer.parseInt(line.substring(lastSep + 3));
+//      }
 
-      if (line.substring(lastSep + 2) == "-") {
-        int sum = -1 * Integer.parseInt(line.substring(lastSep + 3));
-      }
-
-      int sum = Integer.parseInt(line.substring(lastSep + 2));
+      lastSep = line.lastIndexOf(SEP);
+      String intLine = line.substring(lastSep + 2);
+      int sum = Integer.parseInt(intLine);
 
       Budget readedMovingLine = new Budget(date, name, category, sum);
       listBudget.add(readedMovingLine);
