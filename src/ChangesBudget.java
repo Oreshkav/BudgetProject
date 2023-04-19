@@ -71,7 +71,7 @@ public class ChangesBudget {
   public static void printBudget() throws IOException {
 
     List<Budget> expenses = parser();
-    expenses.sort(new BudgetComparator.BudgetDateCategoryComparator());
+    expenses.sort(new BudgetComparator.BudgetDateCategoryNameComparator());
     for (Budget row : expenses) {
       System.out.println(row);
     }
